@@ -47,6 +47,7 @@
     },
     "serve": {
       "continuous": true,
+      "dependsOn": ["api:serve"],
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
@@ -56,7 +57,10 @@
           "buildTarget": "web:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/web/proxy.conf.json"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
