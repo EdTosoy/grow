@@ -1,9 +1,10 @@
+import { AuthModule } from '@grow/auth';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [],
+  imports: [AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

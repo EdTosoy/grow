@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@grow/prisma": ["libs/prisma/src/index.ts"]
+      "@grow/prisma": ["libs/prisma/src/index.ts"],
+      "@grow/auth": ["libs/auth/src/index.ts"],
+      "@grow/common": ["libs/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

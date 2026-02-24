@@ -13,17 +13,43 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+enum Role {
+  ADMIN
+  USER
+  OWNER
 }
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+
+enum OnboardingStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+model User {
+  id    String     @id @default(uuid())
+  email String  @unique
+  name  String
+  password String   @default("changeme123")
+  role Role @default(USER)
+  emailVerified Boolean @default(false)
+  onboardingStatus OnboardingStatus @default(PENDING)
+
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
+
+  refreshToken RefreshToken[]
+}
+
+model RefreshToken {
+  id String @id @default(uuid())
+  tokenHash String
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  revoked Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
 }
