@@ -1,16 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import {
-  Eye,
-  EyeOff,
-  LucideAngularModule,
-  SendHorizontal,
-} from 'lucide-angular';
+import { Eye, EyeOff, LucideAngularModule, SendHorizontal } from 'lucide-angular';
+import { CompanyLogo } from '../../../../../../libs/shared-ui/src/lib/company-logo';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [LucideAngularModule, RouterModule],
+  imports: [LucideAngularModule, RouterModule, CompanyLogo],
   templateUrl: './login.html',
 })
 export class Login {
@@ -26,6 +22,6 @@ export class Login {
   handleLogin(event: Event): void {
     event.preventDefault();
     console.log('first');
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/dashboard']);
   }
 }

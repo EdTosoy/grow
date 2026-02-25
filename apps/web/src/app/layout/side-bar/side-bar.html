@@ -1,0 +1,82 @@
+<div class="h-[calc(100vh-8rem)] w-62.5">
+  <div
+    class="flex h-full flex-col justify-between rounded-tr-[60px] bg-teal-500 pb-6 pt-6 text-white"
+  >
+    <!-- Navigation -->
+    <div class="flex-1 space-y-6 px-6 mt-20">
+      <!-- Common -->
+      <div>
+        @for (item of navItems().common; track item.url) {
+          <a
+            [routerLink]="item.url"
+            routerLinkActive="bg-white/15"
+            class="mb-1 flex items-center gap-3 rounded-r-full px-4 py-2 transition"
+          >
+            <lucide-icon
+              [img]="item.icon"
+              class="h-5 w-5"
+            />
+            <span class="text-sm font-medium">
+              {{ item.title }}
+            </span>
+          </a>
+        }
+      </div>
+
+      <!-- Pre-Onboarding -->
+      <div>
+        <p class="mb-2 text-xs uppercase text-white/70">Pre-Onboarding</p>
+
+        @for (item of navItems().preOnboarding; track item.url) {
+          <a
+            [routerLink]="item.url"
+            routerLinkActive="bg-white/15"
+            class="mb-1 flex items-center gap-3 rounded-l-full px-4 py-2 transition"
+          >
+            <lucide-icon
+              [img]="item.icon"
+              class="h-5 w-5"
+            />
+            <span class="text-sm font-medium">
+              {{ item.title }}
+            </span>
+          </a>
+        }
+      </div>
+
+      <!-- Onboarding -->
+      <div>
+        <p class="mb-2 text-xs uppercase text-white/70">Onboarding</p>
+
+        @for (item of navItems().onboarding; track item.url) {
+          <a
+            [routerLink]="item.url"
+            routerLinkActive="bg-white/15"
+            class="mb-1 flex items-center gap-3 rounded-r-full px-4 py-2 transition"
+          >
+            <lucide-icon
+              [img]="item.icon"
+              class="h-5 w-5"
+            />
+            <span class="text-sm font-medium">
+              {{ item.title }}
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <button
+      type="button"
+      (click)="logout()"
+      class="mx-6 flex items-center gap-3 rounded-r-full px-4 py-2 font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+    >
+      <lucide-icon
+        [img]="ArrowBigLeftDash"
+        class="h-5 w-5"
+      />
+      <span>Log Out</span>
+    </button>
+  </div>
+</div>

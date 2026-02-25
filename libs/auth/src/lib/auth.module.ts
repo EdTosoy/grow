@@ -2,9 +2,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { PrismaService } from '@grow/prisma';
 import { jwtConstants } from '@grow/common';
 import { AuthService } from './auth.service';
+import { PrismaModule } from '@grow/prisma';
 
 @Module({
   imports: [
@@ -15,8 +15,9 @@ import { AuthService } from './auth.service';
         expiresIn: jwtConstants.accessTokenExpiresIn,
       },
     }),
+    PrismaModule,
   ],
-  providers: [AuthService, JwtStrategy, PrismaService],
+  providers: [AuthService, JwtStrategy],
   exports: [AuthService, JwtStrategy],
 })
 export class AuthModule {}

@@ -1,10 +1,9 @@
-import { AuthService } from '@grow/auth';
-import { JwtStrategy } from './../../../auth/src/lib/strategies/jwt.strategy';
-import { PrismaService } from '@grow/prisma';
+import { AuthService, JwtStrategy } from '@grow/auth';
 import { Module } from '@nestjs/common';
+import { PrismaService } from './prisma.service';
 
 @Module({
   providers: [PrismaService, AuthService, JwtStrategy],
   exports: [PrismaService, AuthService],
 })
-export class AuthModule {}
+export class PrismaModule {}

@@ -3,8 +3,6 @@ export * from './lib/auth.service';
 export * from './lib/decorators/public.decorator';
 export * from './lib/decorators/roles.decorator';
 export * from './lib/decorators/onboarding.decorator';
-export * from '../../common/src/lib/enums/role.enum';
-export * from '../../common/src/lib/enums/onboarding-status.enum';
 export * from './lib/guards/jwt-auth.guard';
 export * from './lib/guards/roles.guard';
 export * from './lib/guards/onboarding.guard';
