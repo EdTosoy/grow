@@ -1,0 +1,120 @@
+<div class="mx-auto max-w-3xl space-y-8 p-6">
+  <!-- Header -->
+  <div class="flex items-center gap-3 text-teal-500">
+    <h1 class="text-xl font-semibold">Company ID</h1>
+    <lucide-icon [img]="IdCard" />
+  </div>
+
+  <!-- ID Picture -->
+  <section class="space-y-2">
+    <p class="font-medium">ID Picture</p>
+
+    <div class="rounded-lg border border-dashed border-gray-300 p-4">
+      @if (idPicture()) {
+        <div class="flex items-center justify-between">
+          <p class="truncate text-sm">{{ idPicture() }}</p>
+
+          <button
+            type="button"
+            (click)="removeFile()"
+            class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          >
+            <lucide-icon
+              [img]="X"
+              class="h-4 w-4"
+            />
+          </button>
+        </div>
+      } @else {
+        <label
+          for="company-id"
+          class="flex cursor-pointer flex-col items-center gap-2 text-sm text-gray-500"
+        >
+          <span>Please select a file…</span>
+          <input
+            id="company-id"
+            type="file"
+            class="hidden"
+            (change)="onFileChange($event)"
+          />
+        </label>
+      }
+    </div>
+
+    <p class="text-xs text-gray-500">* Upload your 2×2 picture</p>
+  </section>
+
+  <!-- Signature -->
+  <section class="space-y-2">
+    <p class="font-medium">Signature</p>
+
+    <div class="rounded-lg border border-dashed border-gray-300 p-4">
+      @if (signature()) {
+        <div class="flex items-center justify-between">
+          <p class="truncate text-sm">{{ signature() }}</p>
+
+          <button
+            type="button"
+            (click)="removeSpecimen()"
+            class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          >
+            <lucide-icon
+              [img]="X"
+              class="h-4 w-4"
+            />
+          </button>
+        </div>
+      } @else {
+        <label
+          for="signature-id"
+          class="flex cursor-pointer flex-col items-center gap-2 text-sm text-gray-500"
+        >
+          <span>Please select a file…</span>
+          <input
+            id="signature-id"
+            type="file"
+            class="hidden"
+            (change)="onSpecimenChange($event)"
+          />
+        </label>
+      }
+    </div>
+
+    <p class="text-xs text-gray-500">* Upload a picture with your signature specimen</p>
+  </section>
+
+  <!-- Emergency Contact -->
+  <section class="space-y-4">
+    <p class="font-medium">Emergency Contact</p>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <input
+        type="text"
+        placeholder="Name"
+        class="rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-teal-400"
+      />
+      <input
+        type="text"
+        placeholder="Contact number"
+        class="rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-teal-400"
+      />
+    </div>
+
+    <input
+      type="text"
+      placeholder="Address"
+      class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-teal-400"
+    />
+  </section>
+
+  <!-- Submit -->
+  <div class="flex justify-end">
+    <button
+      type="button"
+      (click)="submit()"
+      class="rounded-md bg-teal-500 px-6 py-2 text-sm font-medium text-white transition hover:bg-teal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+    >
+      Submit
+    </button>
+  </div>
+</div>

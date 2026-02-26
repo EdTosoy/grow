@@ -8,8 +8,7 @@ export const appRoutes: Route[] = [
 
   {
     path: '',
-    loadComponent: () =>
-      import('./layout/main-layout/main-layout').then((m) => m.MainLayout),
+    loadComponent: () => import('./layout/main-layout/main-layout').then((m) => m.MainLayout),
     children: [
       {
         path: '',
@@ -18,8 +17,11 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'dashboard',
-        loadComponent: () =>
-          import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
+        loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
+      },
+      {
+        path: 'company-id',
+        loadComponent: () => import('./pages/company-id/company-id').then((m) => m.CompanyId),
       },
     ],
   },

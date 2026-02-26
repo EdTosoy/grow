@@ -45,13 +45,6 @@ export class SideBar {
         icon: House,
       },
     ];
-    const onboarding: NavItem[] = [
-      {
-        title: 'Touchpoints',
-        url: '/touch-points',
-        icon: Handshake,
-      },
-    ];
     const preOnboarding: NavItem[] = [
       {
         title: 'Company ID',
@@ -72,6 +65,13 @@ export class SideBar {
         title: 'Trainings',
         url: '/trainings',
         icon: Clapperboard,
+      },
+    ];
+    const onboarding: NavItem[] = [
+      {
+        title: 'Touchpoints',
+        url: '/touch-points',
+        icon: Handshake,
       },
     ];
 
