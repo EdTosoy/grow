@@ -11,6 +11,7 @@ import {
   ArrowBigLeftDash,
   LucideAngularModule,
 } from 'lucide-angular';
+import { ROUTES } from '../../routes';
 
 interface NavItem {
   title: string;
@@ -41,36 +42,36 @@ export class SideBar {
     const common: NavItem[] = [
       {
         title: 'Dashboard',
-        url: '/dashboard',
+        url: `/${ROUTES.DASHBOARD}`,
         icon: House,
       },
     ];
     const preOnboarding: NavItem[] = [
       {
         title: 'Company ID',
-        url: '/company-id',
+        url: `/${ROUTES.COMPANY_ID}`,
         icon: IdCard,
       },
       {
         title: 'Metrobank',
-        url: '/metrobank',
+        url: `/${ROUTES.METROBANK}`,
         icon: CreditCard,
       },
       {
         title: 'Uniform',
-        url: '/uniform',
+        url: `/${ROUTES.UNIFORM}`,
         icon: Shirt,
       },
       {
         title: 'Trainings',
-        url: '/trainings',
+        url: `/${ROUTES.TRAININGS}`,
         icon: Clapperboard,
       },
     ];
     const onboarding: NavItem[] = [
       {
         title: 'Touchpoints',
-        url: '/touch-points',
+        url: `/${ROUTES.TOUCH_POINTS}`,
         icon: Handshake,
       },
     ];

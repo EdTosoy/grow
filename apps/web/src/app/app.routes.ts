@@ -1,8 +1,9 @@
 import { Route } from '@angular/router';
+import { ROUTES } from './routes';
 
 export const appRoutes: Route[] = [
   {
-    path: 'auth',
+    path: ROUTES.AUTH,
     loadComponent: () => import('./pages/login/login').then((m) => m.Login),
   },
 
@@ -12,16 +13,20 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: ROUTES.DASHBOARD,
         pathMatch: 'full',
       },
       {
-        path: 'dashboard',
+        path: ROUTES.DASHBOARD,
         loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
       },
       {
-        path: 'company-id',
+        path: ROUTES.COMPANY_ID,
         loadComponent: () => import('./pages/company-id/company-id').then((m) => m.CompanyId),
+      },
+      {
+        path: ROUTES.METROBANK,
+        loadComponent: () => import('./pages/metrobank/metrobank').then((m) => m.Metrobank),
       },
     ],
   },

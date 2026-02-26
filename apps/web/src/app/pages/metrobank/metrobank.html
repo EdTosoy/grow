@@ -1,0 +1,135 @@
+<div class="mx-auto max-w-3xl space-y-8 p-6">
+  <!-- Header -->
+  <div class="flex items-center gap-3 text-teal-500">
+    <h1 class="text-xl font-semibold">Metrobank</h1>
+    <lucide-icon [img]="CreditCard" />
+  </div>
+
+  <!-- Front Side -->
+  <section class="space-y-2">
+    <p class="font-medium">Front Side</p>
+
+    <div class="rounded-lg border border-dashed border-gray-300 p-4">
+      @if (idPictureFront()) {
+        <div class="flex items-center justify-between">
+          <p class="truncate text-sm">{{ idPictureFront() }}</p>
+
+          <button
+            type="button"
+            (click)="removeIdPictureFront()"
+            class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          >
+            <lucide-icon
+              [img]="X"
+              class="h-4 w-4"
+            />
+          </button>
+        </div>
+      } @else {
+        <label
+          for="id-front"
+          class="flex cursor-pointer flex-col items-center gap-2 text-sm text-gray-500"
+        >
+          <span>Please select a file…</span>
+          <input
+            id="id-front"
+            type="file"
+            class="hidden"
+            (change)="onIdPictureFrontChange($event)"
+          />
+        </label>
+      }
+    </div>
+
+    <p class="text-xs text-gray-500">* Please upload the front picture of your valid ID</p>
+  </section>
+
+  <!-- Back Side -->
+  <section class="space-y-2">
+    <p class="font-medium">Back Side</p>
+
+    <div class="rounded-lg border border-dashed border-gray-300 p-4">
+      @if (idPictureBack()) {
+        <div class="flex items-center justify-between">
+          <p class="truncate text-sm">{{ idPictureBack() }}</p>
+
+          <button
+            type="button"
+            (click)="removeIdPictureBack()"
+            class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          >
+            <lucide-icon
+              [img]="X"
+              class="h-4 w-4"
+            />
+          </button>
+        </div>
+      } @else {
+        <label
+          for="id-back"
+          class="flex cursor-pointer flex-col items-center gap-2 text-sm text-gray-500"
+        >
+          <span>Please select a file…</span>
+          <input
+            id="id-back"
+            type="file"
+            class="hidden"
+            (change)="onIdPictureBackChange($event)"
+          />
+        </label>
+      }
+    </div>
+
+    <p class="text-xs text-gray-500">* Please upload the back picture of your valid ID</p>
+  </section>
+
+  <!-- Signature -->
+  <section class="space-y-2">
+    <p class="font-medium">Signature</p>
+
+    <div class="rounded-lg border border-dashed border-gray-300 p-4">
+      @if (signature()) {
+        <div class="flex items-center justify-between">
+          <p class="truncate text-sm">{{ signature() }}</p>
+
+          <button
+            type="button"
+            (click)="removeSignature()"
+            class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
+          >
+            <lucide-icon
+              [img]="X"
+              class="h-4 w-4"
+            />
+          </button>
+        </div>
+      } @else {
+        <label
+          for="signature"
+          class="flex cursor-pointer flex-col items-center gap-2 text-sm text-gray-500"
+        >
+          <span>Please select a file…</span>
+          <input
+            id="signature"
+            type="file"
+            class="hidden"
+            (change)="onSignatureChange($event)"
+          />
+        </label>
+      }
+    </div>
+
+    <p class="text-xs text-gray-500">* Upload a picture with your signatures (3 signatures)</p>
+  </section>
+
+  <!-- Submit -->
+  <div class="flex justify-end">
+    <button
+      type="button"
+      (click)="submit()"
+      class="rounded-md bg-teal-500 px-6 py-2 text-sm font-medium text-white transition hover:bg-teal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+    >
+      Submit
+    </button>
+  </div>
+</div>
