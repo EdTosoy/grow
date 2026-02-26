@@ -37,7 +37,7 @@ interface SidebarNav {
 export class SideBar {
   readonly ArrowBigLeftDash = ArrowBigLeftDash;
   logout() {
-    console.log('logout');
+    // TODO:
   }
   navItems = computed<SidebarNav>(() => {
     const role = 'ADMIN';

@@ -1,0 +1,75 @@
+<div class="space-y-6">
+  <!-- Header -->
+  <div class="flex items-center gap-2 text-lg font-semibold text-neutral-800">
+    <p>Employees</p>
+    <lucide-icon
+      [img]="SquareUser"
+      class="h-5 w-5"
+    />
+  </div>
+
+  <!-- Table -->
+  <div class="rounded-xl border border-neutral-200 bg-white">
+    <!-- Table Header -->
+    <div class="grid grid-cols-5 gap-4 border-b px-4 py-3 text-sm font-medium text-neutral-500">
+      <p>Name</p>
+      <p>Position</p>
+      <p>Department</p>
+      <p>Status</p>
+      <p>Submitted On</p>
+    </div>
+
+    <!-- Table Rows -->
+    @for (item of currentItems(); track item.id) {
+      <div class="grid grid-cols-5 gap-4 border-b last:border-0 px-4 py-3 text-sm text-neutral-700">
+        <p>{{ item.name }}</p>
+        <p>{{ item.position }}</p>
+        <p>{{ item.department }}</p>
+
+        <p
+          class="font-medium"
+          [class.text-emerald-600]="item.status === 'Approved'"
+          [class.text-amber-600]="item.status === 'Pending'"
+          [class.text-red-600]="item.status === 'Rejected'"
+        >
+          {{ item.status }}
+        </p>
+
+        <p class="text-neutral-500">
+          {{ item.signedDate || '--' }}
+        </p>
+      </div>
+    }
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-center gap-2 px-4 py-3">
+      <button
+        class="rounded border px-2 py-1 text-sm disabled:opacity-40"
+        (click)="prevPage()"
+        [disabled]="currentPage() === 1"
+      >
+        &lt;
+      </button>
+
+      @for (page of pageNumbers; track page) {
+        <button
+          class="rounded border px-3 py-1 text-sm transition"
+          [class.bg-neutral-900]="currentPage() === page"
+          [class.text-white]="currentPage() === page"
+          [class.border-neutral-900]="currentPage() === page"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+      }
+
+      <button
+        class="rounded border px-2 py-1 text-sm disabled:opacity-40"
+        (click)="nextPage()"
+        [disabled]="currentPage() === totalPages"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+</div>

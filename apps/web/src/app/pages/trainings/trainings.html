@@ -1,0 +1,52 @@
+<div class="mx-auto max-w-3xl space-y-8 p-6">
+  <!-- Header -->
+  <div class="flex items-center gap-3 text-teal-500">
+    <h1 class="text-xl font-semibold">Trainings</h1>
+    <lucide-icon [img]="Clapperboard" />
+  </div>
+
+  <!-- Category Dropdown -->
+  <section class="space-y-2">
+    <label
+      for="category"
+      class="text-sm font-medium text-gray-700"
+    >
+      Select Category
+    </label>
+
+    <select
+      id="category"
+      class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+      [value]="selectedCategory()"
+      (change)="onCategoryChange($event)"
+    >
+      @for (training of trainings; track training.category) {
+        <option [value]="training.category">
+          {{ training.category }}
+        </option>
+      }
+    </select>
+  </section>
+
+  <!-- Training List -->
+  <section class="space-y-4">
+    @for (training of filteredTrainings(); track training.category) {
+      <div class="space-y-3">
+        @for (item of training.items; track item) {
+          <div class="flex items-center justify-between rounded-lg border border-gray-200 p-4">
+            <p class="text-sm font-medium text-gray-800">
+              {{ item }}
+            </p>
+
+            <div class="flex h-5 w-5 items-center justify-center rounded-full bg-teal-500">
+              <lucide-icon
+                [img]="Check"
+                class="h-3 w-3 text-white"
+              />
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </section>
+</div>
