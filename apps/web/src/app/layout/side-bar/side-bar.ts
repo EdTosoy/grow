@@ -10,6 +10,9 @@ import {
   Shirt,
   ArrowBigLeftDash,
   LucideAngularModule,
+  SquareUser,
+  Building,
+  Notebook,
 } from 'lucide-angular';
 import { ROUTES } from '../../routes';
 
@@ -37,8 +40,7 @@ export class SideBar {
     console.log('logout');
   }
   navItems = computed<SidebarNav>(() => {
-    const role = 'USER';
-
+    const role = 'ADMIN';
     const common: NavItem[] = [
       {
         title: 'Dashboard',
@@ -75,13 +77,37 @@ export class SideBar {
         icon: Handshake,
       },
     ];
+    const adminSideNav: NavItem[] = [
+      {
+        title: 'Employees',
+        url: `/${ROUTES.EMPLOYEES}`,
+        icon: SquareUser,
+      },
+      {
+        title: 'Organization',
+        url: `/${ROUTES.ORGANIZATION}`,
+        icon: Building,
+      },
+      {
+        title: 'Reports',
+        url: `/${ROUTES.REPORTS}`,
+        icon: Notebook,
+      },
+    ];
 
     switch (role) {
-      case 'USER':
+      // case 'USER':
+      //   return {
+      //     common,
+      //     preOnboarding,
+      //     onboarding,
+      //   };
+
+      case 'ADMIN':
         return {
-          common,
-          preOnboarding,
-          onboarding,
+          common: [...common, ...preOnboarding, ...onboarding, ...adminSideNav],
+          preOnboarding: [],
+          onboarding: [],
         };
 
       default:

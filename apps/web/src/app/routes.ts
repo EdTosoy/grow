@@ -8,4 +8,8 @@ export const ROUTES = {
   TRAININGS: 'trainings',
 
   TOUCH_POINTS: 'touch-points',
+
+  EMPLOYEES: 'employees',
+  ORGANIZATION: 'organization',
+  REPORTS: 'reports',
 };
