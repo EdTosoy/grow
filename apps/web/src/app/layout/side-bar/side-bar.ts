@@ -45,40 +45,42 @@ export class SideBar {
         icon: House,
       },
     ];
+    const onboarding: NavItem[] = [
+      {
+        title: 'Touchpoints',
+        url: '/touch-points',
+        icon: Handshake,
+      },
+    ];
+    const preOnboarding: NavItem[] = [
+      {
+        title: 'Company ID',
+        url: '/company-id',
+        icon: IdCard,
+      },
+      {
+        title: 'Metrobank',
+        url: '/metrobank',
+        icon: CreditCard,
+      },
+      {
+        title: 'Uniform',
+        url: '/uniform',
+        icon: Shirt,
+      },
+      {
+        title: 'Trainings',
+        url: '/trainings',
+        icon: Clapperboard,
+      },
+    ];
 
     switch (role) {
       case 'USER':
         return {
           common,
-          preOnboarding: [
-            {
-              title: 'Company ID',
-              url: '/company-id',
-              icon: IdCard,
-            },
-            {
-              title: 'Metrobank',
-              url: '/metrobank',
-              icon: CreditCard,
-            },
-            {
-              title: 'Uniform',
-              url: '/uniform',
-              icon: Shirt,
-            },
-            {
-              title: 'Trainings',
-              url: '/trainings',
-              icon: Clapperboard,
-            },
-          ],
-          onboarding: [
-            {
-              title: 'Touchpoints',
-              url: '/touch-points',
-              icon: Handshake,
-            },
-          ],
+          preOnboarding,
+          onboarding,
         };
 
       default:
