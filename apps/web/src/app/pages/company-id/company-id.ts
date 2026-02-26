@@ -13,7 +13,7 @@ export class CompanyId {
   idPicture = signal<string | null>(null);
   signature = signal<string | null>(null);
 
-  onFileChange(event: Event) {
+  onIdPictureFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
 
@@ -21,11 +21,11 @@ export class CompanyId {
       this.idPicture.set(file.name);
     }
   }
-  removeFile() {
+  removeIdPicture() {
     this.idPicture.set(null);
   }
 
-  onSpecimenChange(event: Event) {
+  onSignatureFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
 
@@ -34,7 +34,7 @@ export class CompanyId {
     }
   }
 
-  removeSpecimen() {
+  removeSignature() {
     this.signature.set(null);
   }
 

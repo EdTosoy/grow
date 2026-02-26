@@ -16,7 +16,7 @@
 
           <button
             type="button"
-            (click)="removeFile()"
+            (click)="removeIdPicture()"
             class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
           >
             <lucide-icon
@@ -35,7 +35,7 @@
             id="company-id"
             type="file"
             class="hidden"
-            (change)="onFileChange($event)"
+            (change)="onIdPictureFileChange($event)"
           />
         </label>
       }
@@ -55,7 +55,7 @@
 
           <button
             type="button"
-            (click)="removeSpecimen()"
+            (click)="removeSignature()"
             class="rounded p-1 text-red-500 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
           >
             <lucide-icon
@@ -74,7 +74,7 @@
             id="signature-id"
             type="file"
             class="hidden"
-            (change)="onSpecimenChange($event)"
+            (change)="onSignatureFileChange($event)"
           />
         </label>
       }
