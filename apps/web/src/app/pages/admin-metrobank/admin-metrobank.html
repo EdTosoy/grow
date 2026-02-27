@@ -1,0 +1,64 @@
+<div class="mx-auto max-w-5xl space-y-8 p-6">
+  <!-- Header -->
+  <div class="flex items-center gap-3 text-teal-500">
+    <h1 class="text-xl font-semibold">Metrobank</h1>
+    <lucide-icon [img]="CreditCard" />
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-hidden rounded-lg border border-gray-200">
+    <!-- Header -->
+    <div class="grid grid-cols-4 bg-gray-50 text-center py-3 text-sm font-medium text-gray-600">
+      <p>Name</p>
+      <p>Position</p>
+      <p>Department</p>
+      <p>Submitted On</p>
+    </div>
+
+    <!-- Rows -->
+    <div class="divide-y divide-gray-100">
+      @for (item of currentItems(); track item.id) {
+        <div class="grid grid-cols-4 gap-4 border-b last:border-0 px-4 py-4 text-sm">
+          <p class="font-medium">{{ item.name }}</p>
+          <p class="text-gray-500">{{ item.position }}</p>
+          <p class="text-gray-500">{{ item.department }}</p>
+
+          <p class="text-gray-500">
+            {{ item.signedDate || '--' }}
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex items-center justify-center gap-2 px-4 py-3">
+    <button
+      class="rounded border px-2 py-1 text-sm disabled:opacity-40"
+      (click)="prevPage()"
+      [disabled]="currentPage() === 1"
+    >
+      &lt;
+    </button>
+
+    @for (page of pageNumbers; track page) {
+      <button
+        class="rounded border px-3 py-1 text-sm transition"
+        [class.bg-teal-500]="currentPage() === page"
+        [class.text-white]="currentPage() === page"
+        [class.border]="currentPage() === page"
+        (click)="goToPage(page)"
+      >
+        {{ page }}
+      </button>
+    }
+
+    <button
+      class="rounded border px-2 py-1 text-sm disabled:opacity-40"
+      (click)="nextPage()"
+      [disabled]="currentPage() === totalPages"
+    >
+      &gt;
+    </button>
+  </div>
+</div>

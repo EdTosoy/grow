@@ -1,37 +1,27 @@
 import { Component, computed, signal } from '@angular/core';
-import { Building, LucideAngularModule, Pencil, Trash2 } from 'lucide-angular';
+import { adminCompanyId } from '../../shared/constants/companyId.constants';
+import { CreditCard, LucideAngularModule } from 'lucide-angular';
 
-const organizations = [
-  {
-    id: 0,
-    department: 'Human Resources',
-    units: 3,
-  },
-  {
-    id: 1,
-    department: 'Accounting',
-    units: 5,
-  },
-];
 @Component({
-  selector: 'app-organization',
+  selector: 'app-admin-metrobank',
   imports: [LucideAngularModule],
-  templateUrl: './organization.html',
+  templateUrl: './admin-metrobank.html',
 })
-export class Organization {
-  readonly Building = Building;
-  readonly Pencil = Pencil;
-  readonly Trash2 = Trash2;
+export class AdminMetrobank {
+  readonly CreditCard = CreditCard;
 
-  private readonly itemsPerPage = 7;
+  readonly itemsPerPage = 5;
 
   currentPage = signal(1);
 
-  totalPages = Math.ceil(organizations.length / this.itemsPerPage);
+  data = adminCompanyId;
+
+  totalPages = Math.ceil(this.data.length / this.itemsPerPage);
 
   currentItems = computed(() => {
     const start = (this.currentPage() - 1) * this.itemsPerPage;
-    return organizations.slice(start, start + this.itemsPerPage);
+    const end = start + this.itemsPerPage;
+    return this.data.slice(start, end);
   });
 
   pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);

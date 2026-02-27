@@ -44,53 +44,84 @@ export class SideBar {
     const common: NavItem[] = [
       {
         title: 'Dashboard',
-        url: `/${ROUTES.DASHBOARD}`,
+        url: `/${ROUTES.USER.DASHBOARD}`,
         icon: House,
       },
     ];
     const preOnboarding: NavItem[] = [
       {
         title: 'Company ID',
-        url: `/${ROUTES.COMPANY_ID}`,
+        url: `/${ROUTES.USER.COMPANY_ID}`,
         icon: IdCard,
       },
       {
         title: 'Metrobank',
-        url: `/${ROUTES.METROBANK}`,
+        url: `/${ROUTES.USER.METROBANK}`,
         icon: CreditCard,
       },
       {
         title: 'Uniform',
-        url: `/${ROUTES.UNIFORM}`,
+        url: `/${ROUTES.USER.UNIFORM}`,
         icon: Shirt,
       },
       {
         title: 'Trainings',
-        url: `/${ROUTES.TRAININGS}`,
+        url: `/${ROUTES.USER.TRAININGS}`,
         icon: Clapperboard,
       },
     ];
     const onboarding: NavItem[] = [
       {
         title: 'Touchpoints',
-        url: `/${ROUTES.TOUCH_POINTS}`,
+        url: `/${ROUTES.USER.TOUCH_POINTS}`,
         icon: Handshake,
       },
     ];
     const adminSideNav: NavItem[] = [
       {
+        title: 'Dashboard',
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.DASHBOARD}`,
+        icon: House,
+      },
+      {
+        title: 'Company ID',
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.COMPANY_ID}`,
+        icon: IdCard,
+      },
+
+      {
+        title: 'Metrobank',
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.METROBANK}`,
+        icon: CreditCard,
+      },
+      {
+        title: 'Uniform',
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.UNIFORM}`,
+        icon: Shirt,
+      },
+      {
+        title: 'Trainings',
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.TRAININGS}`,
+        icon: Clapperboard,
+      },
+      {
+        title: 'Touchpoints',
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.TOUCH_POINTS}`,
+        icon: Handshake,
+      },
+      {
         title: 'Employees',
-        url: `/${ROUTES.EMPLOYEES}`,
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.EMPLOYEES}`,
         icon: SquareUser,
       },
       {
         title: 'Organization',
-        url: `/${ROUTES.ORGANIZATION}`,
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.ORGANIZATION}`,
         icon: Building,
       },
       {
         title: 'Reports',
-        url: `/${ROUTES.REPORTS}`,
+        url: `/${ROUTES.ADMIN.ROOT}/${ROUTES.ADMIN.REPORTS}`,
         icon: Notebook,
       },
     ];
@@ -105,7 +136,7 @@ export class SideBar {
 
       case 'ADMIN':
         return {
-          common: [...common, ...preOnboarding, ...onboarding, ...adminSideNav],
+          common: [...adminSideNav],
           preOnboarding: [],
           onboarding: [],
         };

@@ -1,0 +1,56 @@
+<!-- admin-trainings.component.html -->
+<!-- Mirrors .admin-dashboard { height: 80% } -->
+<div class="h-[80%]">
+  <!-- Page Header — mirrors .admin-dashboard .page-header -->
+  <div class="flex items-center justify-between">
+    <!-- Title — mirrors .admin-page-title -->
+    <div class="flex items-center gap-3 text-teal-500">
+      <h1 class="text-xl font-semibold">Employees</h1>
+      <lucide-icon [img]="SquareUser" />
+    </div>
+    <!-- Add Button — mirrors .add-button -->
+    <button
+      class="flex items-center justify-center p-2.5 bg-[#17b8a6] border-none rounded-lg cursor-pointer hover:bg-[#13a090] transition-colors text-white"
+    >
+      <lucide-icon [img]="Plus" />
+    </button>
+  </div>
+
+  <!-- Category Dropdown -->
+  <div class="flex items-center gap-3 mt-5 mb-4">
+    <label
+      for="category"
+      class="text-xs font-medium text-[#737373] whitespace-nowrap"
+    >
+      Select Category:
+    </label>
+    <select
+      id="category"
+      [value]="selectedCategory()"
+      (change)="onCategoryChange($any($event.target).value)"
+      class="text-xs text-[#737373] border border-black/10 rounded-[5px] px-4 py-2 outline-none bg-white cursor-pointer hover:border-[#17b8a6] transition-colors"
+    >
+      @for (training of trainings; track training.category) {
+        <option [value]="training.category">{{ training.category }}</option>
+      }
+    </select>
+  </div>
+
+  <!-- Training List -->
+  <div class="flex flex-col gap-4">
+    @for (training of filteredTrainings(); track training.category) {
+      <div class="flex flex-col gap-2">
+        @for (item of training.items; track item) {
+          <!-- Training Item Card -->
+          <div
+            class="flex items-center justify-between border border-black/10 rounded-[10px] px-4 py-3 text-[#737373]"
+          >
+            <p class="text-xs font-medium">{{ item }}</p>
+            <!-- Training status placeholder — matches commented-out JSX -->
+            <div class="text-xs text-[#737373]/50">...</div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -24,7 +24,6 @@ const employees = [
   selector: 'app-employees',
   imports: [LucideAngularModule],
   templateUrl: './employees.html',
-  styleUrl: './employees.css',
 })
 export class Employees {
   readonly SquareUser = SquareUser;

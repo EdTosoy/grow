@@ -5,7 +5,6 @@ import { Shirt, ChevronDown, LucideAngularModule } from 'lucide-angular';
   selector: 'app-uniform',
   imports: [LucideAngularModule],
   templateUrl: './uniform.html',
-  styleUrl: './uniform.css',
 })
 export class Uniform {
   readonly Shirt = Shirt;

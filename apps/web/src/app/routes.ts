@@ -1,15 +1,25 @@
 export const ROUTES = {
   AUTH: 'auth',
 
-  DASHBOARD: 'dashboard',
-  COMPANY_ID: 'company-id',
-  METROBANK: 'metrobank',
-  UNIFORM: 'uniform',
-  TRAININGS: 'trainings',
+  USER: {
+    DASHBOARD: 'dashboard',
+    COMPANY_ID: 'company-id',
+    METROBANK: 'metrobank',
+    UNIFORM: 'uniform',
+    TRAININGS: 'trainings',
+    TOUCH_POINTS: 'touch-points',
+  },
 
-  TOUCH_POINTS: 'touch-points',
-
-  EMPLOYEES: 'employees',
-  ORGANIZATION: 'organization',
-  REPORTS: 'reports',
+  ADMIN: {
+    ROOT: 'admin',
+    DASHBOARD: 'dashboard',
+    COMPANY_ID: 'company-id',
+    EMPLOYEES: 'employees',
+    METROBANK: 'metrobank',
+    UNIFORM: 'uniform',
+    TRAININGS: 'trainings',
+    TOUCH_POINTS: 'touch-points',
+    ORGANIZATION: 'organization',
+    REPORTS: 'reports',
+  },
 };

@@ -6,7 +6,6 @@ import { touchpoints } from '../../shared/constants/touchpoints.constants';
   selector: 'app-touchpoints',
   imports: [LucideAngularModule],
   templateUrl: './touchpoints.html',
-  styleUrl: './touchpoints.css',
 })
 export class Touchpoints {
   readonly Handshake = Handshake;

@@ -5,7 +5,6 @@ import { CreditCard, LucideAngularModule, X } from 'lucide-angular';
   selector: 'app-metrobank',
   imports: [LucideAngularModule],
   templateUrl: './metrobank.html',
-  styleUrl: './metrobank.css',
 })
 export class Metrobank {
   readonly CreditCard = CreditCard;

@@ -6,7 +6,6 @@ import { TrainingCategory, TRAININGS } from '../../shared/constants/training.con
   selector: 'app-trainings',
   imports: [LucideAngularModule],
   templateUrl: './trainings.html',
-  styleUrl: './trainings.css',
 })
 export class Trainings {
   readonly Clapperboard = Clapperboard;

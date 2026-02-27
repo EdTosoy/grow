@@ -8,7 +8,9 @@
   <!-- Table -->
   <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
     <!-- Header Row -->
-    <div class="grid grid-cols-6 bg-gray-50 px-6 py-3 text-sm font-medium text-gray-600">
+    <div
+      class="grid grid-cols-6 bg-gray-50 px-6 py-3 text-sm text-center font-medium text-gray-600"
+    >
       <p>Schedule</p>
       <p>Name</p>
       <p>Position</p>
@@ -20,7 +22,7 @@
     <!-- Data Rows -->
     <div class="divide-y divide-gray-100">
       @for (item of currentItems(); track item.id) {
-        <div class="grid grid-cols-6 items-center px-6 py-4 text-sm">
+        <div class="grid grid-cols-6 items-center px-4 py-4 text-sm">
           <!-- Schedule -->
           <div class="space-y-1">
             <p class="font-medium text-gray-900">

@@ -5,7 +5,6 @@ import { IdCard, LucideAngularModule, X } from 'lucide-angular';
   selector: 'app-company-id',
   imports: [LucideAngularModule],
   templateUrl: './company-id.html',
-  styleUrl: './company-id.css',
 })
 export class CompanyId {
   readonly IdCard = IdCard;
