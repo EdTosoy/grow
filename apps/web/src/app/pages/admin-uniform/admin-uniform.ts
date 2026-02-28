@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
+import { uniforms } from '@grow/common';
+import { Pagination } from '@grow/shared-ui';
 import { LucideAngularModule, Shirt } from 'lucide-angular';
-import { uniforms } from '../../shared/constants/uniforms.constants';
 
 @Component({
   selector: 'app-admin-uniform',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, Pagination],
   templateUrl: './admin-uniform.html',
 })
 export class AdminUniform {

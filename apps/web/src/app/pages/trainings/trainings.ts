@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
+import { TrainingCategory, TRAININGS } from '@grow/common';
 import { LucideAngularModule, Clapperboard, Check } from 'lucide-angular';
-import { TrainingCategory, TRAININGS } from '../../shared/constants/training.constants';
 
 @Component({
   selector: 'app-trainings',

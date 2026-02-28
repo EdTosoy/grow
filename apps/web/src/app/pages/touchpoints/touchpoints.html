@@ -55,38 +55,10 @@
       }
     </div>
 
-    <!-- Pagination -->
-    <div class="flex items-center justify-center gap-2 border-t border-gray-100 px-6 py-4">
-      <!-- Prev -->
-      <button
-        (click)="prevPage()"
-        [disabled]="currentPage() === 1"
-        class="rounded-md border px-3 py-1 text-sm disabled:opacity-40"
-      >
-        &lt;
-      </button>
-
-      <!-- Page Numbers -->
-      @for (page of pageNumbers(); track page) {
-        <button
-          (click)="goToPage(page)"
-          class="rounded-md px-3 py-1 text-sm transition"
-          [class.bg-teal-500]="currentPage() === page"
-          [class.text-white]="currentPage() === page"
-          [class.border]="currentPage() !== page"
-        >
-          {{ page }}
-        </button>
-      }
-
-      <!-- Next -->
-      <button
-        (click)="nextPage()"
-        [disabled]="currentPage() >= totalPages()"
-        class="rounded-md border px-3 py-1 text-sm disabled:opacity-40"
-      >
-        &gt;
-      </button>
-    </div>
+    <lib-pagination
+      [currentPage]="currentPage()"
+      [totalPages]="totalPages()"
+      (pageChange)="goToPage($event)"
+    />
   </div>
 </div>

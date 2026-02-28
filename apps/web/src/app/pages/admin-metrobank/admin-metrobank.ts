@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
-import { adminCompanyId } from '../../shared/constants/companyId.constants';
+import { adminCompanyId } from '@grow/common';
+import { Pagination } from '@grow/shared-ui';
 import { CreditCard, LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-admin-metrobank',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, Pagination],
   templateUrl: './admin-metrobank.html',
 })
 export class AdminMetrobank {
@@ -16,7 +17,7 @@ export class AdminMetrobank {
 
   data = adminCompanyId;
 
-  totalPages = Math.ceil(this.data.length / this.itemsPerPage);
+  totalPages = computed(() => Math.ceil(this.data.length / this.itemsPerPage));
 
   currentItems = computed(() => {
     const start = (this.currentPage() - 1) * this.itemsPerPage;
@@ -24,10 +25,10 @@ export class AdminMetrobank {
     return this.data.slice(start, end);
   });
 
-  pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  pageNumbers = Array.from({ length: this.totalPages() }, (_, i) => i + 1);
 
   nextPage() {
-    if (this.currentPage() < this.totalPages) {
+    if (this.currentPage() < this.totalPages()) {
       this.currentPage.update((p) => p + 1);
     }
   }

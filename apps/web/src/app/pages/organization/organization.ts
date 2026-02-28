@@ -1,21 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
+import { organizations } from '@grow/common';
+import { Pagination } from '@grow/shared-ui';
 import { Building, LucideAngularModule, Pencil, Trash2 } from 'lucide-angular';
 
-const organizations = [
-  {
-    id: 0,
-    department: 'Human Resources',
-    units: 3,
-  },
-  {
-    id: 1,
-    department: 'Accounting',
-    units: 5,
-  },
-];
 @Component({
   selector: 'app-organization',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, Pagination],
   templateUrl: './organization.html',
 })
 export class Organization {
@@ -23,21 +13,21 @@ export class Organization {
   readonly Pencil = Pencil;
   readonly Trash2 = Trash2;
 
-  private readonly itemsPerPage = 7;
+  private readonly itemsPerPage = 5;
 
   currentPage = signal(1);
 
-  totalPages = Math.ceil(organizations.length / this.itemsPerPage);
+  totalPages = computed(() => Math.ceil(organizations.length / this.itemsPerPage));
 
   currentItems = computed(() => {
     const start = (this.currentPage() - 1) * this.itemsPerPage;
     return organizations.slice(start, start + this.itemsPerPage);
   });
 
-  pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  pageNumbers = Array.from({ length: this.totalPages() }, (_, i) => i + 1);
 
   nextPage() {
-    if (this.currentPage() < this.totalPages) {
+    if (this.currentPage() < this.totalPages()) {
       this.currentPage.update((p) => p + 1);
     }
   }

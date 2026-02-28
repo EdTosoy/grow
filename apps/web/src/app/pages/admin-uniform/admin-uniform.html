@@ -34,38 +34,9 @@
       }
     </div>
   </div>
-  <div class="flex items-center justify-center gap-1 mt-4 pt-2">
-    <!-- Prev Button -->
-    <button
-      (click)="prevPage()"
-      [disabled]="currentPage() === 1"
-      class="px-3 py-1.5 text-xs rounded border border-black/10 text-[#737373] hover:bg-[#17b8a6] hover:text-white hover:border-[#17b8a6] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#737373] disabled:hover:border-black/10 transition-colors cursor-pointer"
-    >
-      &lt;
-    </button>
-
-    <!-- Page Number Buttons -->
-    @for (pageNum of pageNumbers(); track pageNum) {
-      <button
-        (click)="goToPage(pageNum)"
-        class="px-3 py-1.5 text-xs rounded border transition-colors cursor-pointer"
-        [class]="
-          currentPage() === pageNum
-            ? 'bg-[#17b8a6] text-white border-[#17b8a6]'
-            : 'border-black/10 text-[#737373] hover:bg-[#17b8a6] hover:text-white hover:border-[#17b8a6]'
-        "
-      >
-        {{ pageNum }}
-      </button>
-    }
-
-    <!-- Next Button -->
-    <button
-      (click)="nextPage()"
-      [disabled]="currentPage() >= totalPages()"
-      class="px-3 py-1.5 text-xs rounded border border-black/10 text-[#737373] hover:bg-[#17b8a6] hover:text-white hover:border-[#17b8a6] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#737373] disabled:hover:border-black/10 transition-colors cursor-pointer"
-    >
-      &gt;
-    </button>
-  </div>
+  <lib-pagination
+    [currentPage]="currentPage()"
+    [totalPages]="totalPages()"
+    (pageChange)="goToPage($event)"
+  />
 </div>

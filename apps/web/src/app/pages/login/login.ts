@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { CompanyLogo } from '@grow/shared-ui';
 import { Eye, EyeOff, LucideAngularModule, SendHorizontal } from 'lucide-angular';
-import { CompanyLogo } from '../../../../../../libs/shared-ui/src/lib/company-logo';
 
 @Component({
   selector: 'app-login',

@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
+import { adminCompanyId } from '@grow/common';
 import { Handshake, LucideAngularModule } from 'lucide-angular';
-import { adminCompanyId } from '../../shared/constants/companyId.constants';
+import { Pagination } from '@grow/shared-ui';
 
 @Component({
   selector: 'app-admin-touchpoints',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, Pagination],
   templateUrl: './admin-touchpoints.html',
 })
 export class AdminTouchpoints {

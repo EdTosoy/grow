@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
+import { trainingData } from '@grow/common';
 import { LucideAngularModule, Plus, SquareUser } from 'lucide-angular';
-import { trainingData } from '../../shared/constants/training.constants';
 
 @Component({
   selector: 'app-admin-trainings',

@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
+import { touchpoints } from '@grow/common';
+import { Pagination } from '@grow/shared-ui';
 import { Handshake, LucideAngularModule } from 'lucide-angular';
-import { touchpoints } from '../../shared/constants/touchpoints.constants';
 
 @Component({
   selector: 'app-touchpoints',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, Pagination],
   templateUrl: './touchpoints.html',
 })
 export class Touchpoints {

@@ -32,33 +32,9 @@
   </div>
 
   <!-- Pagination -->
-  <div class="flex items-center justify-center gap-2 px-4 py-3">
-    <button
-      class="rounded border px-2 py-1 text-sm disabled:opacity-40"
-      (click)="prevPage()"
-      [disabled]="currentPage() === 1"
-    >
-      &lt;
-    </button>
-
-    @for (page of pageNumbers; track page) {
-      <button
-        class="rounded border px-3 py-1 text-sm transition"
-        [class.bg-teal-500]="currentPage() === page"
-        [class.text-white]="currentPage() === page"
-        [class.border]="currentPage() === page"
-        (click)="goToPage(page)"
-      >
-        {{ page }}
-      </button>
-    }
-
-    <button
-      class="rounded border px-2 py-1 text-sm disabled:opacity-40"
-      (click)="nextPage()"
-      [disabled]="currentPage() === totalPages"
-    >
-      &gt;
-    </button>
-  </div>
+  <lib-pagination
+    [currentPage]="currentPage()"
+    [totalPages]="totalPages()"
+    (pageChange)="goToPage($event)"
+  />
 </div>
